@@ -11,12 +11,15 @@ import {
   Twitter,
   ChevronRight,
   ChevronLeft,
+  Menu,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Drawer } from "antd";
 
 const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const routes = [
     "/home",
@@ -64,6 +67,57 @@ const Layout = () => {
           backgroundColor: "#ffffffff",
         }}
       >
+        <button
+          className="d-flex d-lg-none bg-info align-items-center justify-content-center rounded-circle hover-scale"
+          style={{
+            position: "fixed",
+            top: "12px",
+            right: "12px",
+            width: "45px",
+            height: "45px",
+            zIndex: 1050,
+            transition: "transform 0.2s ease",
+          }}
+          onClick={() => setOpen(true)}
+        >
+          <Menu className="text-white" />
+        </button>
+
+        <Drawer
+          title="Basic Drawer"
+          placement="right"
+          width={300}
+          onClose={() => setOpen(false)}
+          open={open}
+        >
+          <ul className="list-unstyled w-100 m-0 p-0">
+            {menuItems.map((item) => {
+              const IconComponent = item.icon;
+              const isActive = location.pathname === item.path;
+
+              return (
+                <Link
+                  to={item.path}
+                  key={item.path}
+                  className="text-decoration-none w-100"
+                >
+                  <small
+                    className={`d-flex border-bottom border-secondary align-items-center justify-content-center py-4 text-center text-white`}
+                  >
+                    <div className="mb-1">
+                      <IconComponent
+                        className={isActive ? "text-info" : "hover-info"}
+                        size={24}
+                      />
+                    </div>
+                    {item.label}
+                  </small>
+                </Link>
+              );
+            })}
+          </ul>
+        </Drawer>
+
         <div
           className="d-none d-lg-flex flex-column align-items-center py-3 position-fixed top-0 start-0 h-100"
           style={{ width: "88px", zIndex: 1000, backgroundColor: "#222" }}

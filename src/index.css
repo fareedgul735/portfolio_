@@ -29,3 +29,7 @@
   box-shadow: 0 3px 10px rgba(13, 202, 240, 0.35);
   transition: all 0.25s ease;
 }
+
+.hover-scale:hover {
+  transform: scale(1.15);
+}
