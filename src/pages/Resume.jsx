@@ -2,7 +2,7 @@ import React from "react";
 
 const Resume = () => {
   return (
-    <div className="text-white">
+    <div className="text-white p-4">
       <h1 className="text-white">Resume</h1>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
       necessitatibus omnis recusandae qui ipsa rerum voluptatem velit soluta

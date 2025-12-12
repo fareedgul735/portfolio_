@@ -2,7 +2,7 @@ import { WHAT_I_DO } from "../lib/Constant";
 
 const About = () => {
   return (
-    <div className="container">
+    <div className="container  p-4">
       <div className="about-des">
         <h1 className="text-white">About Me</h1>
         <p className="text-secondary">
