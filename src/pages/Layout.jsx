@@ -84,12 +84,33 @@ const Layout = () => {
         </button>
 
         <Drawer
-          title="Basic Drawer"
+        className="bg-black"
           placement="right"
           width={300}
           onClose={() => setOpen(false)}
           open={open}
         >
+          <div className="d-flex flex-column align-items-center justify-content-center">
+            <div
+              className="rounded-circle overflow-hidden d-flex align-items-center justify-content-center mb-3"
+              style={{
+                width: "120px",
+                height: "120px",
+                border: "8px solid #3a3a3a",
+                background: "linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%)",
+              }}
+            >
+              <div
+                className="w-100 h-100"
+                style={{
+                  background:
+                    "url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='70' r='35' fill='%23ff6b4a'/><path d='M100 110 Q70 110 55 140 L55 200 L145 200 L145 140 Q130 110 100 110' fill='%23ff6b4a'/></svg>\") center/cover",
+                }}
+              ></div>
+            </div>
+            <h2 className="text-white mb-1">Alex Smith</h2>
+            <p className="text-secondary mb-4">Web Designer</p>
+          </div>
           <ul className="list-unstyled w-100 m-0 p-0">
             {menuItems.map((item) => {
               const IconComponent = item.icon;
@@ -102,9 +123,9 @@ const Layout = () => {
                   className="text-decoration-none w-100"
                 >
                   <small
-                    className={`d-flex border-bottom border-secondary align-items-center justify-content-center py-4 text-center text-white`}
+                    className={`d-flex border-bottom border-secondary align-items-center justify-content-center py-4 gap-2 text-center text-white`}
                   >
-                    <div className="mb-1">
+                    <div className="mb-1 text-white">
                       <IconComponent
                         className={isActive ? "text-info" : "hover-info"}
                         size={24}
@@ -116,6 +137,36 @@ const Layout = () => {
               );
             })}
           </ul>
+          <div className="d-flex mt-4 align-items-center justify-content-center gap-2 mb-4">
+            <a
+              href="#"
+              className="btn btn-dark rounded-circle d-flex align-items-center justify-content-center p-2"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              href="#"
+              className="btn btn-dark rounded-circle d-flex align-items-center justify-content-center p-2"
+            >
+              <Facebook size={18} />
+            </a>
+            <a
+              href="#"
+              className="btn btn-dark rounded-circle d-flex align-items-center justify-content-center p-2"
+            >
+              <Twitter size={18} />
+            </a>
+          </div>
+
+          <div className="mb-auto d-flex mt-4 align-items-center justify-content-center gap-2">
+            <button className="btn bg-black text-white btn-outline-light rounded-pill px-4 py-2">
+              Download CV
+            </button>
+          </div>
+
+          <div className="text-center text-secondary mt-2">
+            <p className="mb-0">© 2025 All rights reserved.</p>
+          </div>
         </Drawer>
 
         <div
